@@ -1,0 +1,18 @@
+[
+  {
+    "Name": "admin",
+    "Username": "admin",
+    "Password": "AQAAAAEAACcQAAAAEA0f70MiQ669RXfhAO9EfdacnqRk9qRZiiIrTre3IxK5OaYLWrSYcDTujso4Tug39w==",
+    "ConfirmPassword": "admin",
+    "IsAdmin": true,
+    "Id": 1
+  },
+  {
+    "Name": "test",
+    "Username": "test",
+    "Password": "AQAAAAEAACcQAAAAEFIIBXhlRtl0rNgovdwjwsKjqNWy8O7S9zyg3oI5\u002B/qrMLdYWLJPbbicKY9ZXE2xww==",
+    "ConfirmPassword": "test",
+    "IsAdmin": false,
+    "Id": 2
+  }
+]

@@ -1,0 +1,25 @@
+﻿@page
+@model FiskeTorvet.Pages.Stores.JewelleryModel
+@{ViewData["Title"] = "Jewellery";
+}
+<body style="background-color:#eeeeee;">
+<br></br>
+<h1 class="text-center">Jewellery</h1>
+<br></br>
+<div class="container">
+    <div class="row">
+        @if (Model.Jewelry != null)
+        {
+            foreach (var item in Model.Jewelry)
+            {
+                <div class="col-sm-4 text-center border border-dark rounded p-3 bg-white">
+                    <img src="~/Images/@item.Value.ImageName" width="60%">
+                    <h3 class="p-2">@item.Value.Name</h3>
+                    <p>@item.Value.Description</p>
+                    <p class="btn btn-secondary font-weight-bold">@item.Value.Price DKK</p>
+                </div>
+            }
+        }
+    </div>
+</div>
+</body>

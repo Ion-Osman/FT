@@ -1,0 +1,29 @@
+﻿@page "{id}"
+@model FiskeTorvet.Pages.Orders.OrderModel
+@{
+    ViewData["Title"] = "Order";
+    decimal total = 0;
+}
+
+<h4>Hello @Model.User.Name: Thank you for placing this order on @DateTime.Now</h4>
+<h5> Your order contains:</h5>
+@foreach (var item in Model.cartItems)
+{
+    <tr>
+        <td class="text-left"> Name: @item.Value.Name</td>
+        <td class="text-right">
+            Price :
+            @((item.Value.Price).ToString("c"))
+        </td>
+    </tr>
+    total = total + item.Value.Price;
+    <br />
+}
+<br />
+<p>
+    You  payed a total price: @total <br />
+    We'll ship your items as soon as possible.
+</p>
+
+
+

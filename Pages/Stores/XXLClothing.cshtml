@@ -1,0 +1,32 @@
+﻿@page
+@model FiskeTorvet.Pages.Stores.XXLClothingModel
+@{
+    ViewData["Title"] = "XXL-Clothing";
+}
+<body style="background-color:#fffb00;">
+<br></br>
+<h1 class="text-center"><u>XXL-Clothing</u></h1>
+<br></br>
+<div class="container">
+    <div class="row">
+        @if (Model.Clothes != null)
+        {
+            foreach (var item in Model.Clothes)
+            {
+        <div class="col-sm-4 text-center border border-danger rounded p-3 bg-white">
+            <img src="~/Images/@item.Value.ImageName" class="align-content-center" width="50">
+            <h3 class="p-2">@item.Value.Name</h3>
+            <p>@item.Value.Description</p>
+            <p class="btn btn-warning font-weight-bold">@item.Value.Price DKK</p>
+            <p>
+                <a asp-page="/Orders/Basket" asp-route-isbn="@item.Value.Name"
+                   class="btn btn-success btn-group-lg pull-right">
+                    Add To Cart
+                </a>
+            </p>
+        </div>
+            }
+        }
+    </div>
+</div>
+</body>

@@ -1,0 +1,18 @@
+﻿@page
+@model FiskeTorvet.Pages.Orders.CheckOutModel
+@{
+    ViewData["Title"] = "CheckOut";
+}
+
+<h2 style="glyph-orientation-horizontal">Check-Out</h2>
+
+<form method="post">
+    <h3>Please, enter you  information</h3>
+    <div class="form-group">
+        <label>Id:</label><input asp-for="@Model.User.Id" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Name:</label><input asp-for="@Model.User.Name" class="form-control" />
+    </div>
+</form>
+

@@ -1,0 +1,151 @@
+﻿@page
+@model AdminModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+
+    ViewData["Title"] = "Home page";
+}
+<h1>admin </h1>
+<h2 id="parkingHeadline">Parking</h2>
+<div id="parkingContent">
+    <form method="post">
+        <input type="submit" asp-page-handler="ParkingIncrease" value="ParkingIncrease">
+        <br />
+        <input type="submit" asp-page-handler="ParkingDecrease" value="ParkingDecrease">
+        <br /><br /><br />
+        <input type="number" name="value" />
+        <br />
+        <input type="submit" asp-page-handler="ParkingSet" value="Set parking number" />
+
+    </form>
+</div>
+<h2 id="dealsHeadline">Deals</h2>
+<div id="dealsContent">
+        <h2>remove item</h2>
+        @if (Model._ProductService.GetClothing() != null) {
+        @foreach (var item in Model._ProductService.GetClothing().Values)
+        {
+        <form method="post">
+            <div style="border: 1px solid black;">
+                <p>@item.Name</p>;
+                <input name="storeName" hidden="hidden" value="Clothing" />
+                <input name="Id" hidden="hidden" value="@item.Id" />
+                <input type="submit" asp-page-handler="RemoveItem" />
+            </div>
+        </form>
+        }}else{
+                <p>no data here</p>
+        }
+        
+        @if(Model._ProductService.GetElectro() != null) { 
+        @foreach (var item in Model._ProductService.GetElectro().Values)
+        {
+        <form method="post">
+            <div style="border: 1px solid black;">
+                <p>@item.Name</p>;
+                <input name="storeName" hidden="hidden" value="Electronics" />
+                <input name="Id" hidden="hidden" value="@item.Id" />
+                <input type="submit" asp-page-handler="RemoveItem" />
+            </div>
+        </form>
+        }}else{
+                <p>no data here</p>
+        }
+        @if(Model._ProductService.GetJewelry() != null) { 
+        @foreach (var item in Model._ProductService.GetJewelry().Values)
+        {
+        <form method="post">
+        <div style="border: 1px solid black;">
+            <p>@item.Name</p>;
+            <input name="storeName" hidden="hidden" value="Jewelry" />
+            <input name="Id" hidden="hidden" value="@item.Id" />
+            <input type="submit" asp-page-handler="RemoveItem" />
+        </div>
+        </form>
+        }}else{
+                <p>no data here</p>
+        }
+
+    <h2>add item</h2>
+    <form method="post">
+        <select name="storeName">
+            <option value="Clothing">Clothing</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Jewelry">Jewelry</option>
+        </select>
+        <br />
+        <p>id</p>
+        <input type="number" name="id" />
+        <p>price</p>
+        <input type="number" name="price" />
+        <p>name</p>
+        <input type="text" name="name" />
+        <p>description</p>
+        <input type="text" name="description" />
+        <p>image name</p>
+        <input type="text" name="imageName" />
+        <br />
+        <input type="submit" asp-page-handler="AddItem" value="create item" />
+    </form>
+</div>
+<br />
+
+<h2 id="userHeadline">Users</h2>
+<div id="userContent">
+    <h2>remove user</h2>
+    @foreach (var item in Model._UserService.GetUsers)
+    {
+
+        <form method="post">
+            <p>@item.Name</p>;
+            <input hidden="hidden" name="Id" value="@item.Id" />
+            <input type="submit" asp-page-handler="RemoveUser" />
+        </form>
+    }
+
+        <h2>add user</h2>
+        <form method="post">
+            <select name="isAdmin">
+                <option value="True">admin</option>
+                <option value="False">normal</option>
+            </select>
+            <br />
+            <p>name</p>
+            <input type="text" name="Name" />
+            <p>username</p>
+            <input type="text" name="UserName" />
+            <p>password</p>
+            <input type="password" name="Password" />
+            <p>id</p>
+            <input type="number" name="Id" />
+
+            <br />
+            <input type="submit" asp-page-handler="CreateUser" value="create user" />
+        </form>
+    </div>
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>RESET BUTTON</h1>
+<form method="post">
+    <input type="submit" asp-page-handler="Reset" value="Reset" />
+    <p>warning: will reset all data on page, only press if needed</p>
+</form>

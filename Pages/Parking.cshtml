@@ -1,0 +1,15 @@
+﻿@page
+@model ParkingModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<h1>
+    Fisketorvet got 500 parking spaces that can be used for free for 2 hours.
+</h1>
+<img src="~/parking image 1/parking area.jpg" alt="" />
+<h2>Number of available parking spaces</h2>
+
+
+<h1 style="border:1px solid black;width: max-content;" class="parkingbox">@Model.parkingNumber </h1>

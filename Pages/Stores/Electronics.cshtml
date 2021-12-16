@@ -1,0 +1,27 @@
+﻿@page
+@model FiskeTorvet.Pages.Stores.ElectronicsModel
+@{
+    ViewData["Title"] = "Neptun Electro";
+}
+<body style="background-color:powderblue;">
+<br></br>
+<h1 class="text-center"><u>Neptun Electro</u></h1>
+<br></br>
+<div class="container">
+    <div class="row">
+        @if (Model.Electronics != null)
+        {
+            foreach (var item in Model.Electronics)
+            {
+                <div class="col-sm-4 text-center border border-info p-3 bg-white">
+                
+                    <img src="~/Images/@item.Value.ImageName" class="align-content-center" width="80%">
+                    <h3 class="p-2">@item.Value.Name</h3>
+                    <p>@item.Value.Description</p>
+                    <p class="btn btn-info font-weight-bold">@item.Value.Price DKK</p>
+                </div>
+            }
+        }
+    </div>
+</div>
+</body>

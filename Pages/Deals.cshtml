@@ -1,0 +1,29 @@
+﻿@page
+@model DealsModel
+@{
+    ViewData["Title"] = "Shops";
+}
+<br>
+<h1 class="text-center">Shops</h1>
+<br>
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-4 text-center border border-dark rounded p-2 bg-white">
+            <img src="~/Images/electro.PNG" class="p-1" width="92%">
+            <a class="nav-link text-dark btn btn-light btn-space" asp-area="" asp-page="/Stores/Electronics">Electro</a>
+        </div>
+
+        <div class="col-sm-4 text-center border border-dark rounded p-3 bg-white">
+            <img src="~/Images/jewellery.jpg" class="p-2" width="62%">
+            <a class="nav-link text-dark btn btn-light btn-space" asp-area="" asp-page="/Stores/Jewellery">Jewellery</a>
+        </div>
+
+        <div class="col-sm-4 text-center border border-dark rounded p-3 bg-white">
+            <img src="~/Images/XXL.PNG" class="p-5" width="100%">
+            <a class="nav-link text-dark btn btn-light btn-space" asp-area="" asp-page="/Stores/XXLClothing">XXL-Clothing</a>
+        </div>
+
+    </div>
+</div>
+
